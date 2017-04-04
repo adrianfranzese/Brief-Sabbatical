@@ -4,13 +4,12 @@ Fontastic f;
 
 void setup() {
   size(400,400);
-  background(255);
   createFont();
 }
 
 //Display the font when finished
 void draw() {
-  //background(255);
+  background(255);
   PFont myFont = createFont(f.getTTFfilename(), 84);
   textFont(myFont);
   fill(0);
