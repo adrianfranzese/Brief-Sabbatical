@@ -1,4 +1,4 @@
-import fontastic.*;
+import fontastic.*; //Import Fontastic library
 
 Fontastic f;
 
@@ -8,6 +8,7 @@ void setup() {
   createFont();
 }
 
+//Display the font when finished
 void draw() {
   //background(255);
   PFont myFont = createFont(f.getTTFfilename(), 84);
@@ -17,13 +18,14 @@ void draw() {
   
 }
 
+//Create the font
 void createFont() {
   f = new Fontastic(this, "Punch Card");
   f.setAdvanceWidth(0);
   
   int i = 0;
-  int cStroke = 40;
-  int cWidth = 200;
+  int cStroke = 40; //Width of stroke
+  int cWidth = 200; //Width of letters
   //char[] allChars = concat(Fontastic.alphabet, Fontastic.alphabetLc);
   
   for (char c : Fontastic.alphabet) {
