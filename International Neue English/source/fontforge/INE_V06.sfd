@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1491988589
-ModificationTime: 1492917804
+ModificationTime: 1493183573
 PfmFamily: 49
 TTFWeight: 400
 TTFWidth: 5
@@ -85,7 +85,7 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 0 25 10
+WinInfo: 50 25 10
 BeginPrivate: 0
 EndPrivate
 TeXData: 1 0 0 346030 173015 115343 0 1048576 115343 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
@@ -6167,7 +6167,7 @@ SplineSet
  30 511 39 520 50 520 c 0
 EndSplineSet
 Validated: 1
-Ligature2: "Uppercase" o p
+Ligature2: "Uppercase" i p
 EndChar
 
 StartChar: i_q
