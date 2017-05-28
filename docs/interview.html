@@ -56,6 +56,9 @@
 
 
   <script>
+    document.onLoad() {
+      document.documentElement.requestFullscreen();
+    };
     window.sr = ScrollReveal({ delay: 200, distance: '100px', duration: 800, reset: true, viewFactor: 1 });
     sr.reveal('#chat p');
     sr.reveal('#chat h3');
