@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SKO</title>
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+  <script src="js/scrollreveal.min.js"></script>
+  <script src="js/pushbullet.min.js" type="text/javascript"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <ul>
+      <li><a href="index.html">What is this?</a></li>
+      <li><a href="interview.html">Interview</a></li>
+      <li><a href="more_qs.html">Ask me anything</a></li>
+    </ul>
+  </header>
+  <section id="chat">
+    <h4 id="time"></h4>
+    <h3>Any other questions?</h3>
+    <div id="user"></div>
+    <div id="messageForm">
+      <input type="text" id="messageBox" autofocus="true" name="messageText"/>
+      <span>Enter to send</span>
+    </div>
+  </section>
+
+  <script>
+    PushBullet.APIKey = "o.HEleMWe2ZvNVbp2Sfn2qljZwdWgRSyIF";
+    window.sr = ScrollReveal({ delay: 200, distance: '100px', duration: 800, reset: true, viewFactor: 1 });
+    sr.reveal('#chat p');
+    sr.reveal('#chat h3');
+    sr.reveal('#chat h4', { duration: 400 });
+
+    var d = new Date();
+    document.getElementById("time").innerHTML = d.toDateString();
+
+    // function store() {
+    //   localStorage.setItem("sentMessage", document.getElementById("messageBox").value);
+    //
+    //   var t = document.createTextNode(localStorage.sentMessage);
+    //   var pTag = document.createElement("p");
+    //   pTag.appendChild(t);
+    //   document.getElementById("user").appendChild(pTag);
+    //   sr.reveal("#user p");
+    // };
+
+    var i = 0;
+    var textBox = document.querySelector("input");
+    textBox.addEventListener("keypress", function(e) {
+      //Listen for 'enter' keydown
+      if (e.which == 13) {
+        var m = "sentMessage" + i;
+
+        //Add messageBox content to session storage
+        sessionStorage.setItem(m, document.getElementById("messageBox").value);
+
+        //Create new p tag with messageBox content
+        var t = document.createTextNode(sessionStorage.getItem(m));
+        var pTag = document.createElement("p");
+        pTag.appendChild(t);
+        document.getElementById("user").appendChild(pTag);
+        sr.reveal("#user p");
+        //Clear messageBox and increment counter
+        document.getElementById("messageBox").value = "";
+        i = i+1;
+
+        PushBullet.push("note", "ujwKlSTQrG8sjz7O3P0Jl6", null, {title: "SKO QS", body: sessionStorage.getItem(m)});
+      }
+    });
+    </script>
+</body>
+</html>
